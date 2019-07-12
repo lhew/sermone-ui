@@ -5,6 +5,10 @@ import Login from './components/Login';
 
 import store from './store';
 
-const App = () => <Provider store={store}><Login /></Provider>;
+const App = (): React.FunctionComponentElement<{}> => (
+    <Provider store={store}>
+        <Login />
+    </Provider>
+);
 
 export default App;

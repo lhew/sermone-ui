@@ -1,21 +1,14 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import { FormComponentProps } from 'antd/lib/form';
 
-
-const Login = ({ form: {getFieldDecorator} }: FormComponentProps) => {
-
+const Login = ({ form: { getFieldDecorator } }: FormComponentProps): React.FunctionComponentElement<{}> => {
     return (
         <Form className="login-form">
             <Form.Item>
                 {getFieldDecorator('username', {
                     rules: [{ required: true, message: 'Please input your username!' }],
-                })(
-                    <Input
-                        prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                        placeholder="Username"
-                    />,
-                )}
+                })(<Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />)}
             </Form.Item>
             <Form.Item>
                 {getFieldDecorator('password', {
@@ -35,14 +28,14 @@ const Login = ({ form: {getFieldDecorator} }: FormComponentProps) => {
                 })(<Checkbox>Remember me</Checkbox>)}
                 <a className="login-form-forgot" href="">
                     Forgot password
-              </a>
+                </a>
                 <Button type="primary" htmlType="submit" className="login-form-button">
                     Log in
-              </Button>
+                </Button>
                 Or <a href="">register now!</a>
             </Form.Item>
         </Form>
     );
-}
+};
 
 export default Form.create({ name: 'login' })(Login);
